@@ -23,11 +23,20 @@ public class UserControllerImpl implements UserController {
         }
         return user;
     }
+    public void getAllRegisteredUsers(){
+        for(User u : UserController.users){
+            System.out.println(u);
+        }
+    }
     public static void main(String[] args) {
         UserController userController = new UserControllerImpl();
         userController.registerUser(new User("q","q@q.pl", "q", LocalDate.of(2000,3,3)));
         userController.registerUser(new User("w","w@w.pl", "w", LocalDate.of(2001,3,3)));
         userController.registerUser(new User("e","e@e.pl", "e", LocalDate.of(2002,3,3)));
-        System.out.println(userController.getUserByEmail("e@e.pl"));
+        userController.registerUser(
+                new Admin("a","a@a.pl", "a", LocalDate.of(2002,3,3),
+                        null, "Adam", "Kowalski"));
+//        System.out.println(userController.getUserByEmail("e@e.pl"));
+        ((UserControllerImpl) userController).getAllRegisteredUsers();
     }
 }
