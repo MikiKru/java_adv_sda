@@ -25,9 +25,10 @@ public class User {
         this.birthDate = birthDate;
         this.registrationDateTime = LocalDateTime.now();
         this.status = true;
+        System.out.println("Jestem w kontruktorze User!");
     }
     // toString
-    @Override
+    @Override // przysłonięcie implementacji z nadklasy Object
     public String toString() {
         return "User{" +
                 "login='" + login + '\'' +
