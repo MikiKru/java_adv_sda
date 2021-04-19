@@ -7,6 +7,11 @@ public class Main {
     public boolean isActivated(Object o){
         return ((User) o).isStatus();
     }
+    // metoda do porównywania który obiekt był wcześniej zarejestrowany
+    public boolean isEarlierRegistrated(User u1, User u2){
+        return u1.getRegistrationDateTime().isBefore(u2.getRegistrationDateTime());
+    }
+
 
     public static void main(String[] args) {
 //        User user = new User("mk", "mk@mk.pl", "mk", LocalDate.of(2000,5,5));
@@ -43,5 +48,10 @@ public class Main {
                 new User("x","x@x.pl","x", LocalDate.of(1999,2,2))
         ));
 //        System.out.println(main.isActivated("ABC"));
+        System.out.println(main.isEarlierRegistrated(
+                (User) u1,
+                (User) u2
+        ));
+
     }
 }
