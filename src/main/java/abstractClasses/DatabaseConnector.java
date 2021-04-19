@@ -1,6 +1,13 @@
 package abstractClasses;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public abstract class DatabaseConnector {
+    public static Object[] records = new Object[10];
+
     private String database;
     private String userName;
     private String password;
@@ -22,5 +29,6 @@ public abstract class DatabaseConnector {
     public abstract void insert(Object o);
     // 4. metoda abstrakcyjna do zwracania wszystkich (tablicy) rekordów (obiektów) z tabeli db
     public abstract Object [] select();
+
 
 }
