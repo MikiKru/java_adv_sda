@@ -30,5 +30,4 @@ public abstract class DatabaseConnector {
     // 4. metoda abstrakcyjna do zwracania wszystkich (tablicy) rekordów (obiektów) z tabeli db
     public abstract Object [] select();
 
-
 }

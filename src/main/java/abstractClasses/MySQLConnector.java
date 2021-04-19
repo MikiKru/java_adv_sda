@@ -22,7 +22,6 @@ public class MySQLConnector extends DatabaseConnector {
             System.out.println("Connection error!");
         }
     }
-
     @Override
     public Object[] select() {      // pobiera zawartość tablicy rekordów gdy isConnected -> true
         if(isConnected()){
@@ -31,5 +30,15 @@ public class MySQLConnector extends DatabaseConnector {
             System.out.println("Connection error!");
             return null;
         }
+    }
+    public static void main(String[] args) {
+        DatabaseConnector db = new MySQLConnector();
+        db.connect("task_manager","user", "qwe123");
+        db.insert("ABC");
+        db.insert("ZYZ");
+        for(Object o : db.select()){
+            System.out.println(o);
+        }
+        db.close();
     }
 }
