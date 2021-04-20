@@ -22,6 +22,14 @@ public class ListsExample {
         // edycja
         names.set(5, "TOMASZ");
 //        names.set(15, "TOMASZ");
+        // usuwanie
         System.out.println(names);
+        names.remove(0);
+        System.out.println(names);
+        names.removeAll(new ArrayList<>(Arrays.asList("ALA","JAN")));
+        System.out.println(names);
+        // sprawdzanie
+        System.out.println(names.contains("ALA"));
+        System.out.println(names.contains("ELA"));
     }
 }
