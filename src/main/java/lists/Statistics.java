@@ -60,14 +60,15 @@ public class Statistics {
         return min;
     }
     private int getMostFrequentElement() {
-        int frequent_element = elements.get(0);
+        List<Integer> elementsCopy = new ArrayList<>(elements);
+        int frequent_element = elementsCopy.get(0);
         int frequency = 0;
-        while (!elements.isEmpty()) {
-            int element = elements.get(0);
-            int before = elements.size();
-            elements.removeAll(new ArrayList<>(Arrays.asList(element)));
-            if ((before - elements.size()) > frequency) {
-                frequency = before - elements.size();
+        while (!elementsCopy.isEmpty()) {
+            int element = elementsCopy.get(0);
+            int before = elementsCopy.size();
+            elementsCopy.removeAll(new ArrayList<>(Arrays.asList(element)));
+            if ((before - elementsCopy.size()) > frequency) {
+                frequency = before - elementsCopy.size();
                 frequent_element = element;
             }
         }
