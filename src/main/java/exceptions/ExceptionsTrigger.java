@@ -17,16 +17,20 @@ public class ExceptionsTrigger {
             return element;
         } catch (IndexOutOfBoundsException ex){// obsługa wyjątku typu IndexOutOfBoundException
             ex.printStackTrace();
-            return null;
+//            return null;
+        } catch (NullPointerException ex){
+            ex.printStackTrace();
+//            return null;
         } catch (Exception ex){                // obsługa wyjątku typu Exception - każdego wyjątku
             ex.printStackTrace();
-            return null;
+//            return null;
         }
+        return null;
     }
     public static void main(String[] args) {
         ExceptionsTrigger et = new ExceptionsTrigger();
         System.out.println(et.getElementByIndex(20));
-        System.out.println(et.getElementByIndex(2));
+        System.out.println(et.getElementByIndex(0));
         System.out.println(et.getElementByIndex(1));
     }
 }
