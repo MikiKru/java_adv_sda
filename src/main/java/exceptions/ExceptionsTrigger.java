@@ -17,13 +17,10 @@ public class ExceptionsTrigger {
             return element;
         } catch (IndexOutOfBoundsException ex){// obsługa wyjątku typu IndexOutOfBoundException
             ex.printStackTrace();
-//            return null;
         } catch (NullPointerException ex){
             ex.printStackTrace();
-//            return null;
         } catch (Exception ex){                // obsługa wyjątku typu Exception - każdego wyjątku
             ex.printStackTrace();
-//            return null;
         }
         return null;
     }
