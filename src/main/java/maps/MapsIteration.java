@@ -37,5 +37,8 @@ public class MapsIteration {
             System.out.printf("| %-1s | %-10s | %-10s |\n",
                     id, usersMap.get(id).getLogin(), usersMap.get(id).getEmail());
         }
+        System.out.println(romanToNumeric.keySet());
+        System.out.println(romanToNumeric.values());
+        System.out.println(romanToNumeric);
     }
 }
