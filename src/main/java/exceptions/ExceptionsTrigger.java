@@ -10,6 +10,9 @@ public class ExceptionsTrigger {
     public Integer getElementByIndex(int index){
         try {                                  // jeśli w try wystąpi wyjątek to przejdź do catch
                                                // jeżeli nie to wykonaj kod w try i przejdź do kolejnych instrukcji za catch
+            if(index == 0){                    // dla określonego przypadku syntetycznie zgłoś wyjątek NullPointerException
+                throw new NullPointerException();
+            }
             int element = elements.get(index); // identyfikacja miejsca wystąpienia wyjątku
             return element;
         } catch (IndexOutOfBoundsException ex){// obsługa wyjątku typu IndexOutOfBoundException
