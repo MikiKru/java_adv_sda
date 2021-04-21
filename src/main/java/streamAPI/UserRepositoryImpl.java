@@ -34,7 +34,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
     @Override
     public Map getUsersGroupingByYears() {
-        return users.stream().collect(Collectors.groupingBy(User::getBirthDate));
+        return users.stream().collect(Collectors.groupingBy(user -> user.getBirthDate().getYear()));
     }
     @Override
     public String getUsersInfo() {

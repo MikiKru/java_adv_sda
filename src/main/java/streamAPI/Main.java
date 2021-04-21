@@ -1,5 +1,10 @@
 package streamAPI;
 
+import oop.User;
+
+import java.util.List;
+import java.util.Map;
+
 public class Main {
     public static void main(String[] args) {
         UserRepository userRepository = new UserRepositoryImpl();
@@ -14,8 +19,9 @@ public class Main {
         System.out.println("UŻYTKOWNICY");
         System.out.println(userRepository.getUsersInfo());
         System.out.println("GRUPOWANIE");
-        for(Integer o : userRepository.getUsersGroupingByYears().keySet()){
-            System.out.printf("%10s : %100s", o, userRepository.getUsersGroupingByYears().get(o));
+        Map<Integer, List<User>> groupOfUser = userRepository.getUsersGroupingByYears();
+        for(Integer o : groupOfUser.keySet()){
+            System.out.printf("%10d : %10d\n", o, groupOfUser.get(o).size());
         }
 
     }

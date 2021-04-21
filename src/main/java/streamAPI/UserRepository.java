@@ -26,7 +26,7 @@ public interface UserRepository {
     // 2000 : 3
     // 1999 : 1
     // ....
-    Map<Integer, User> getUsersGroupingByYears();
+    Map<Integer, List<User>> getUsersGroupingByYears();
     // Zwróć dane o użytkownikach w typie string jak poniżej:
     // login | email | password | bithDate |
     // ...   | ...   | ....     | ...      |
