@@ -9,5 +9,9 @@ public class StreamAPINumbers {
         Arrays.stream(numbers)
                 .filter(value -> (value % 2 == 0) && (value > 0))
                 .forEach(System.out::println);
+        // zwróć wartość maksymalną z tablicy
+        Arrays.stream(numbers).max().ifPresentOrElse(
+                value -> System.out.println("MAX: " + value),
+                () -> System.out.println("NO MAX VALUE - EMPTY LIST"));
     }
 }
