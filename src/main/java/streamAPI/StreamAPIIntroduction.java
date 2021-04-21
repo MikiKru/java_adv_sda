@@ -3,6 +3,7 @@ package streamAPI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StreamAPIIntroduction {
     public static void main(String[] args) {
@@ -34,5 +35,10 @@ public class StreamAPIIntroduction {
                 .filter(name -> name.toUpperCase().charAt(name.length() - 1) == 'A')
                 .map(name -> "kobieta: " + name)
                 .forEach(name -> System.out.println(name));
+        // zwróć listę imion męskich
+        List<String> males = names.stream()                                             // Stream<String>
+                .filter(name -> name.toUpperCase().charAt(name.length() - 1) != 'A')    // Stream<String>
+                .collect(Collectors.toList());                                          // List<String>
+        males.forEach(System.out::println);
     }
 }
