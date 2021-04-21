@@ -51,14 +51,10 @@ public class UserRepositoryImpl implements UserRepository {
     }
     @Override
     public List<User> getUsersWithEncodedPassword(String algorithmName) {
+        try {
+            MessageDigest md = MessageDigest.getInstance(algorithmName); // Klasa zawierająca algorytmy szyfrujące
             return users.stream()
                     .map(user -> {
-                        MessageDigest md = null; // Klasa zawierająca algorytmy szyfrujące
-                        try {
-                            md = MessageDigest.getInstance(algorithmName);
-                        } catch (NoSuchAlgorithmException e) {
-                            e.printStackTrace();
-                        }
                         md.update(user.getPassword().getBytes());        // na istniejącym haśle tworzony jest szyfr
                         String hash = "";
                         for(int i = 0; i < md.digest().length; i++){
@@ -68,5 +64,9 @@ public class UserRepositoryImpl implements UserRepository {
                         return user;                                     // zarócenie użytkownika z zaktualizowanym hasłem
                     })
                     .collect(Collectors.toList());
+                    } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
