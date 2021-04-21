@@ -12,12 +12,20 @@ public class BookRepositoryImpl implements BookRepository {
         // foreach -> do odczytu
         // for -> do zadań RW gdy znana jest ilośc iteracji
         // while -> do zadań gdy niezana jest ilość iteracji
-        for (Book book : books) {
-            if (book.getTitle().equals(title)) {
-                return book;
+        Book foundBook = null;      // wartość domyślna - nie znaleziono
+        try {
+            for (Book book : books) {
+                if (book.getTitle().equals(title)) {
+                    foundBook = book;   // jeśli znaleziono to zmieniam wartość domyślną
+                }
             }
+            if(foundBook == null){      // sprawdzenie czy znaleziono książkę po wszystkich iteracjach
+                throw new NoBookFoundException(title);  // zgłoszenie wyjątku
+            }
+        } catch(NoBookFoundException ex){               // obsługa wyjątku
+            ex.printStackTrace();
         }
-        return null;
+        return foundBook;
     }
     @Override
     public Book getBookByIndex(int index) {
@@ -31,6 +39,11 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public void removeBook(int index) {
-
+        for (Book searchedBook : books) {
+            if (books.indexOf(searchedBook) == index) {
+                books.remove(searchedBook);
+                break;
+            }
+        }
     }
 }
