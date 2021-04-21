@@ -11,5 +11,7 @@ public class Main {
         );
         System.out.println("SORTOWANIE");
         userRepository.getAllUsersOrderBy("data urodzenia",false).forEach(System.out::println);
+        System.out.println("UŻYTKOWNICY");
+        System.out.println(userRepository.getUsersInfo());
     }
 }

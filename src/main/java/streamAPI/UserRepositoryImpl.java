@@ -38,7 +38,14 @@ public class UserRepositoryImpl implements UserRepository {
     }
     @Override
     public String getUsersInfo() {
-        return null;
+        return String.format("| %10s | %10s | %10s | %10s |\n", "login", "email", "password", "birthdate") +
+                users.stream()
+                    .map(user -> String.format(
+                            "| %10s | %10s | %10s | %10s |",
+                            user.getLogin(), user.getEmail(), user.getPassword(), user.getBirthDate()
+                            )
+                    )
+                    .collect(Collectors.joining("\n"));
     }
     @Override
     public List<User> getUsersWithEncodedPassword(String algorithmName) {
