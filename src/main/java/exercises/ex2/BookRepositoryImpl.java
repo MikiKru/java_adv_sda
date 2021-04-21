@@ -51,7 +51,10 @@ public class BookRepositoryImpl implements BookRepository {
     public void removeBook(int index) {
         try {
             Book foundBook = null;
-            for (int i = 0; i < books.size(); i++) {
+//            for(Book book : books){     // 10 elementów -> 9 elementów -> zdefiniowana ilość iteracji
+//                // ...
+//            }
+            for (int i = 0; i < books.size(); i++) {    // każdorazowo sprawdzany warunek końca pętli
                 if (books.indexOf(books.get(i)) == index) {
                     foundBook = books.get(i);
                     books.remove(books.get(i));
