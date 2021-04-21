@@ -2,6 +2,8 @@ package streamAPI;
 
 import oop.User;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -49,6 +51,22 @@ public class UserRepositoryImpl implements UserRepository {
     }
     @Override
     public List<User> getUsersWithEncodedPassword(String algorithmName) {
-        return null;
+            return users.stream()
+                    .map(user -> {
+                        MessageDigest md = null; // Klasa zawierająca algorytmy szyfrujące
+                        try {
+                            md = MessageDigest.getInstance(algorithmName);
+                        } catch (NoSuchAlgorithmException e) {
+                            e.printStackTrace();
+                        }
+                        md.update(user.getPassword().getBytes());        // na istniejącym haśle tworzony jest szyfr
+                        String hash = "";
+                        for(int i = 0; i < md.digest().length; i++){
+                            hash += md.digest()[i];
+                        }
+                        user.setPassword(hash);                          // aktualizacja hasła
+                        return user;                                     // zarócenie użytkownika z zaktualizowanym hasłem
+                    })
+                    .collect(Collectors.toList());
     }
 }

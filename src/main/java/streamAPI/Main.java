@@ -23,6 +23,8 @@ public class Main {
         for(Integer o : groupOfUser.keySet()){
             System.out.printf("%10d : %10d\n", o, groupOfUser.get(o).size());
         }
-
+        System.out.println("SZYFROWANIE");
+        userRepository.getUsersWithEncodedPassword("md5")
+                .forEach(user -> System.out.println(user.getEmail() + " " + user.getPassword()));
     }
 }
