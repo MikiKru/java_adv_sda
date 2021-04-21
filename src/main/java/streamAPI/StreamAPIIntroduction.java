@@ -40,5 +40,16 @@ public class StreamAPIIntroduction {
                 .filter(name -> name.toUpperCase().charAt(name.length() - 1) != 'A')    // Stream<String>
                 .collect(Collectors.toList());                                          // List<String>
         males.forEach(System.out::println);
+        // w jednym poleceniu sprawdź ile jest kobiet na liście
+        long femaleCount = names.stream()
+                .filter(name -> name.toUpperCase().charAt(name.length() - 1) == 'A')
+                .count();
+        System.out.println("Ile jest kobiet: " + femaleCount);
+        long uniqueFemaleCount = names.stream()
+                .filter(name -> name.toUpperCase().charAt(name.length() - 1) == 'A')
+                .distinct()
+                .count();
+        System.out.println("Ile jest unikatowych imion żeńskich: " + uniqueFemaleCount);
+
     }
 }
