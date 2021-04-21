@@ -11,7 +11,8 @@ public class Main {
         System.out.println("Czy jest władca pierścieni? " + bookRepository.getBookByTitle("Władca pierscieni"));
         System.out.println("INDEX 1: " + bookRepository.getBookByIndex(1));
         System.out.println("INDEX 10: " + bookRepository.getBookByIndex(10));
-//        bookRepository.removeBook(0);
+        bookRepository.removeBook(0);
         bookRepository.removeBook(5);
+        System.out.println(BookRepository.books);
     }
 }
