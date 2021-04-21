@@ -25,7 +25,7 @@ public class User {
         this.birthDate = birthDate;
         this.registrationDateTime = LocalDateTime.now();
         this.status = true;
-        System.out.println("Jestem w kontruktorze User!");
+//        System.out.println("Jestem w kontruktorze User!");
     }
     // toString
     @Override // przysłonięcie implementacji z nadklasy Object
