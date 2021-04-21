@@ -13,5 +13,10 @@ public class Main {
         userRepository.getAllUsersOrderBy("data urodzenia",false).forEach(System.out::println);
         System.out.println("UŻYTKOWNICY");
         System.out.println(userRepository.getUsersInfo());
+        System.out.println("GRUPOWANIE");
+        for(Integer o : userRepository.getUsersGroupingByYears().keySet()){
+            System.out.printf("%10s : %100s", o, userRepository.getUsersGroupingByYears().get(o));
+        }
+
     }
 }

@@ -33,8 +33,8 @@ public class UserRepositoryImpl implements UserRepository {
         return users.stream().filter(user -> user.getEmail().equals(email)).findFirst();
     }
     @Override
-    public Map<Integer, User> getUsersGroupingByYears() {
-        return null;
+    public Map getUsersGroupingByYears() {
+        return users.stream().collect(Collectors.groupingBy(User::getBirthDate));
     }
     @Override
     public String getUsersInfo() {
