@@ -14,5 +14,9 @@ public class Main {
         bookRepository.removeBook(0);
         bookRepository.removeBook(5);
         System.out.println(BookRepository.books);
+
+//        int x = 7;
+//        System.out.println((x == 6) ? "x == 6" : "x != 6");
+
     }
 }
