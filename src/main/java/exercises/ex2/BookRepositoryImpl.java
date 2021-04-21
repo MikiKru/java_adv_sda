@@ -16,7 +16,7 @@ public class BookRepositoryImpl implements BookRepository {
         Book foundBook = null;      // wartość domyślna - nie znaleziono
         try {
             for (Book book : books) {
-                if (book.getTitle().equals(title)) {
+                if (book.getTitle().toUpperCase().equals(title.toUpperCase())) {
                     foundBook = book;   // jeśli znaleziono to zmieniam wartość domyślną
                 }
             }
@@ -51,10 +51,10 @@ public class BookRepositoryImpl implements BookRepository {
     public void removeBook(int index) {
         try {
             Book foundBook = null;
-            for (Book searchedBook : books) {
-                if (books.indexOf(searchedBook) == index) {
-                    foundBook = searchedBook;
-                    books.remove(searchedBook);
+            for (int i = 0; i < books.size(); i++) {
+                if (books.indexOf(books.get(i)) == index) {
+                    foundBook = books.get(i);
+                    books.remove(books.get(i));
                 }
             }
             if (foundBook == null) {
