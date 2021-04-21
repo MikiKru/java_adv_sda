@@ -7,7 +7,8 @@ public enum Category {
     PROGRAMMING("programowanie"),
     DEV_OPS("administracja"),
     SCRUM("scrum"),
-    TESTING("testowanie");
+    TESTING("testowanie"),
+    OTHER("inne");
 
     private final String name;
 

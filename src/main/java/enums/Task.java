@@ -13,9 +13,11 @@ public class Task {
 
     public Task(String title, String categoryName, Status status) {
         this.title = title;
-        this.category = Arrays.stream(Category.values())
-                .filter(c -> c.getName().equals(categoryName))
-                .findFirst().get();
+        if(Arrays.stream(Category.values()).filter(c -> c.getName().equals(categoryName)).findFirst().isPresent()) {
+            this.category = Arrays.stream(Category.values()).filter(c -> c.getName().equals(categoryName)).findFirst().get();
+        } else {
+            this.category = Category.OTHER;
+        }
         this.status = status;
     }
 }
