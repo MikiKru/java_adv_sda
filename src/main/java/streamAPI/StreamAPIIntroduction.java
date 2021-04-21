@@ -3,6 +3,7 @@ package streamAPI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class StreamAPIIntroduction {
@@ -50,6 +51,19 @@ public class StreamAPIIntroduction {
                 .distinct()
                 .count();
         System.out.println("Ile jest unikatowych imion żeńskich: " + uniqueFemaleCount);
-
+        // wyszukaj osobę o imieniu ELA
+        String searchName = "elaaa";
+        Optional<String> resultOptional = names.stream()                                // Stream<String>
+                .filter(name -> name.toUpperCase().equals(searchName.toUpperCase()))    // Stream<String>
+                .findFirst();                                                           // Optional<String>
+        // ---------------
+//        if(resultOptional.isPresent()){                                                 // jeśli nie jest null
+//            System.out.println("Znaleziono : " + resultOptional.get());                 // pobieram imię
+//        } else {
+//            System.out.println("Nie znaleziono imienia " + searchName);
+//        }
+        //----------------
+        resultOptional.ifPresent(name -> System.out.println("Znaleziono: " + name));
+        System.out.println(resultOptional.orElse("Nie znaleziono imienia " + searchName));
     }
 }
