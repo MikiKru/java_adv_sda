@@ -2,10 +2,7 @@ package streamAPI;
 
 import oop.User;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class UserRepositoryImpl implements UserRepository {
@@ -15,15 +12,21 @@ public class UserRepositoryImpl implements UserRepository {
     }
     @Override
     public List<User> getAllUsersOrderBy(String filedName, boolean isAsc) {
-        if(isAsc) { // rosnąco
-            return users.stream()                                       // Stream<User>
-                    .sorted(Comparator.comparing(User::getBirthDate))   // Stream<User>
-                    .collect(Collectors.toList());                      // List<User>
+        if(filedName.toUpperCase().equals("data urodzenia".toUpperCase())) {
+            if (isAsc) { // rosnąco
+                return users.stream()                                       // Stream<User>
+                        .sorted(Comparator.comparing(User::getBirthDate))   // Stream<User>
+                        .collect(Collectors.toList());                      // List<User>
+            }
+            // malejąco
+            return users.stream()
+                    .sorted(Comparator.comparing(User::getBirthDate).reversed())
+                    .collect(Collectors.toList());
+        // } else if(){ -> dla innych pól
+        } else {
+            System.out.println("Jeszcze nie sortujemy po takim polu: " + filedName);
+            return new ArrayList<>();
         }
-        // malejąco
-        return users.stream()
-                .sorted(Comparator.comparing(User::getBirthDate).reversed())
-                .collect(Collectors.toList());
     }
     @Override
     public Optional<User> getUserByEmail(String email) {

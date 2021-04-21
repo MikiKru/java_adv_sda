@@ -10,6 +10,6 @@ public class Main {
                 () -> System.out.println("Nie znaleziono użytkownika " + email)
         );
         System.out.println("SORTOWANIE");
-        userRepository.getAllUsersOrderBy("",false).forEach(System.out::println);
+        userRepository.getAllUsersOrderBy("data urodzenia",false).forEach(System.out::println);
     }
 }
