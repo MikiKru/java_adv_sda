@@ -14,7 +14,9 @@ public class Task {
     public Task(String title, String categoryName, Status status) {
         this.title = title;
         if(Arrays.stream(Category.values()).filter(c -> c.getName().equals(categoryName)).findFirst().isPresent()) {
-            this.category = Arrays.stream(Category.values()).filter(c -> c.getName().equals(categoryName)).findFirst().get();
+            this.category = Arrays.stream(Category.values())
+                    .filter(c -> c.getName().equals(categoryName))
+                    .findFirst().get();
         } else {
             this.category = Category.OTHER;
         }

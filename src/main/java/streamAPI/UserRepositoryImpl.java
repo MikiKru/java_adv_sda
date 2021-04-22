@@ -55,12 +55,12 @@ public class UserRepositoryImpl implements UserRepository {
             MessageDigest md = MessageDigest.getInstance(algorithmName); // Klasa zawierająca algorytmy szyfrujące
             return users.stream()
                     .map(user -> {
-                        md.update(user.getPassword().getBytes());        // na istniejącym haśle tworzony jest szyfr
+                        byte [] byteHash = md.digest(user.getPassword().getBytes());
                         String hash = "";
-                        for(int i = 0; i < md.digest().length; i++){
-                            hash += md.digest()[i];
+                        for(int i = 0; i < byteHash.length; i++){
+                            hash += String.format("%02x",byteHash[i]);
                         }
-                        user.setPassword(hash);                          // aktualizacja hasła
+                        user.setPassword(hash);                       // aktualizacja hasła
                         return user;                                     // zarócenie użytkownika z zaktualizowanym hasłem
                     })
                     .collect(Collectors.toList());
