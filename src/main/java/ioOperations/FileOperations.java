@@ -3,6 +3,7 @@ package ioOperations;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class FileOperations {
     private List<String> notes = new ArrayList<>();
@@ -32,8 +33,19 @@ public class FileOperations {
         }
     }
     // odczytaj notatki z pliku
-    public void readNotes(){
-
+    public void readNotes(String path){
+        try {
+            System.out.println("Odczyt pliku: " + path);
+            Scanner sc = new Scanner(new File(path));
+                                                // odczyt odbywa się linijka po linijce
+            while (sc.hasNextLine()){           // sprawdza czy jest kolejna linia tekstu do wczytania
+                System.out.println(sc.nextLine());
+            }
+            sc.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.err.println("Nie znaleziono pliku!");
+        }
     }
     public static void main(String[] args) {
         FileOperations fo = new FileOperations();
@@ -41,5 +53,8 @@ public class FileOperations {
         fo.addNote("Nauka FileIO");
         fo.appendNote("Nauka OOP");
         fo.appendNote("Nauka enums");
+        fo.readNotes("xxx");
+        fo.readNotes("mynotes.txt");
+        fo.readNotes("myNotesAppend.txt");
     }
 }
