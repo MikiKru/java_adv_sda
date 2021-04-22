@@ -1,7 +1,9 @@
 package exercises.ex1_lambda;
 
-import java.util.List;
+import lombok.Data;
 
+import java.util.List;
+@Data
 class Episode {
     public String episodeName;
     public int episodeNumber;

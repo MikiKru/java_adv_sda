@@ -1,5 +1,8 @@
 package exercises.ex1_lambda;
 
+import lombok.Data;
+
+@Data
 class Video {
     public String title;
     public String url;
