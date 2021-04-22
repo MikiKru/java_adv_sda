@@ -1,0 +1,4 @@
+Overview.
+map() and flatMap() APIs stem from functional languages. In Java 8, we can find them in Optional, Stream and in CompletableFuture (although under a slightly different name).
+Streams represent a sequence of objects whereas optionals are classes that represent a value that can be present or absent. Among other aggregate operations, we have the map() and flatMap() methods.
+Despite the fact that both have the same return types, they are quite different. Let's explain these differences by analyzing some examples of streams and optionals.
