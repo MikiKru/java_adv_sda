@@ -2,6 +2,7 @@ package exercises.ex1_lambda;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public interface SerialData {
     Video v1 = new Video("GOT1", "got1.com", VideoType.CLIP);
@@ -18,5 +19,6 @@ public interface SerialData {
     Season s1 = new Season("GOTS1", 1, new ArrayList<>(Arrays.asList(e1,e2)));
     Season s2 = new Season("GOTS2", 2, new ArrayList<>(Arrays.asList(e3)));
 
+    List<Season> seasons = new ArrayList<>(Arrays.asList(s1, s2));
 
 }
