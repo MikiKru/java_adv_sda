@@ -52,16 +52,20 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public List<User> getUsersWithEncodedPassword(String algorithmName) {
         try {
-            MessageDigest md = MessageDigest.getInstance(algorithmName); // Klasa zawierająca algorytmy szyfrujące
-            return users.stream()
-                    .map(user -> {
+            MessageDigest md = MessageDigest.getInstance(algorithmName); // klasa zawierająca algorytmy szyfrujące
+            return users.stream()                                        // Stream<User>
+                    .map(user -> {                                       // mapowanie user na user ze zmienionym hasłem
+                        // szafrowanie działa na typie byte []
                         byte [] byteHash = md.digest(user.getPassword().getBytes());
                         String hash = "";
                         for(int i = 0; i < byteHash.length; i++){
-                            hash += String.format("%02x",byteHash[i]);
+                            // 0 - dopełnienie zerami
+                            // 2 - dwa znaki reprezentacji
+                            // x - hex
+                            hash += String.format("%02x",byteHash[i]);  // hash w reprezentacji hexagonalnej
                         }
-                        user.setPassword(hash);                       // aktualizacja hasła
-                        return user;                                     // zarócenie użytkownika z zaktualizowanym hasłem
+                        user.setPassword(hash);                         // aktualizacja hasła
+                        return user;                                    // zarócenie użytkownika z zaktualizowanym hasłem
                     })
                     .collect(Collectors.toList());
                     } catch (NoSuchAlgorithmException e) {
