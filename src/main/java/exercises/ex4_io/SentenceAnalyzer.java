@@ -17,7 +17,7 @@ public class SentenceAnalyzer {
             String[] dividedSentence;
             String wordToCompare;
             while (sc.hasNextLine()) {
-                dividedSentence = sc.nextLine().replaceAll("[\\.,()]", "").split(" ");
+                dividedSentence = sc.nextLine().replaceAll("[\\.,()]+", "").split(" ");
                 wordToCompare = Arrays.stream(dividedSentence).max(Comparator.comparing(String::length)).get();
                 if (wordToCompare.length() > longestWord.length()) {
                     longestWord = wordToCompare;
