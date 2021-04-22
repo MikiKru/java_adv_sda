@@ -33,10 +33,11 @@ public class CsvParser {
     // parsowanie User to CSV
     private void addUserToCsvFile(User user){
         try {
+            getUsersFromCsvFile().add(user);
             FileWriter fw = new FileWriter(PATH, true);
             fw.append(String.format("%s,%s,%d\n", user.getName(),user.getLastName(),user.getAge()));
-//            fw.append(user.getName() + "," + user.getLastName() + "," + user.getAge() + "\n");
             fw.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
