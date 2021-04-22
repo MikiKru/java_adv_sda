@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @Data
 public class User {
     public String name;
-    private String lastName;
+    public String lastName;
     public int age;
 }
