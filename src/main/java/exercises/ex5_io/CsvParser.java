@@ -2,6 +2,8 @@ package exercises.ex5_io;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +31,20 @@ public class CsvParser {
         }
     }
     // parsowanie User to CSV
-    private void addUsertoCsvFile(User user){
-
+    private void addUserToCsvFile(User user){
+        try {
+            FileWriter fw = new FileWriter(PATH, true);
+            fw.append(String.format("%s,%s,%d\n", user.getName(),user.getLastName(),user.getAge()));
+//            fw.append(user.getName() + "," + user.getLastName() + "," + user.getAge() + "\n");
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public static void main(String[] args) {
         CsvParser csvParser = new CsvParser();
+        csvParser.addUserToCsvFile(new User("Test", "Test", 20));
         csvParser.getUsersFromCsvFile().forEach(System.out::println);
+
     }
 }
