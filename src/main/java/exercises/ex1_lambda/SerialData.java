@@ -14,7 +14,7 @@ public interface SerialData {
 
     Episode e1 = new Episode("got1", 1, new ArrayList<>(Arrays.asList(v1,v2)));
     Episode e2 = new Episode("got2", 2, new ArrayList<>(Arrays.asList(v3,v4)));
-    Episode e3 = new Episode("got3", 1, new ArrayList<>(Arrays.asList(v5,v6)));
+    Episode e3 = new Episode("got3", 2, new ArrayList<>(Arrays.asList(v5,v6)));
 
     Season s1 = new Season("GOTS1", 1, new ArrayList<>(Arrays.asList(e1,e2)));
     Season s2 = new Season("GOTS2", 2, new ArrayList<>(Arrays.asList(e3)));

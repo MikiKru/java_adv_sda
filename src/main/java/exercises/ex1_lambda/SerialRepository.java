@@ -12,7 +12,7 @@ public interface SerialRepository {
     // lista video z parzystych epizodów i sezonów
     List<Video> getAllVideosWithEvenSeasonsAndEvenEpisodes(List<Season> seasons);
     // lista video typu Preview z nieparzystych epizodów i parzystych sezonów
-    List<Video> getAllVideosWithPreviewAndEooEpisodesAndEvenSeasons(List<Season> seasons);
+    List<Video> getAllVideosWithPreviewAndOddEpisodesAndEvenSeasons(List<Season> seasons);
 
 
 }

@@ -18,5 +18,9 @@ public class Main {
         sr.getAllVideos(SerialData.seasons).forEach(System.out::println);
         System.out.println("VIDEO NAMES");
         sr.getAllVideoNames(SerialData.seasons).forEach(System.out::println);
+        System.out.println("EVEN E AND EVEN S");
+        sr.getAllVideosWithEvenSeasonsAndEvenEpisodes(SerialData.seasons).forEach(System.out::println);
+        System.out.println("ODD E AND EVEN S PREVIEW");
+        sr.getAllVideosWithPreviewAndOddEpisodesAndEvenSeasons(SerialData.seasons).forEach(System.out::println);
     }
 }

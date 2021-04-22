@@ -25,10 +25,21 @@ public class SerialRepositoryImpl implements SerialRepository {
     }
     @Override
     public List<Video> getAllVideosWithEvenSeasonsAndEvenEpisodes(List<Season> seasons) {
-        return null;
+        return seasons.stream()
+                .filter(season -> season.seasonNumber % 2 == 0)
+                .flatMap(season -> season.getEpisodes().stream())
+                .filter(episode -> episode.episodeNumber % 2 == 0)
+                .flatMap(episode -> episode.getVideos().stream())
+                .collect(Collectors.toList());
     }
     @Override
-    public List<Video> getAllVideosWithPreviewAndEooEpisodesAndEvenSeasons(List<Season> seasons) {
-        return null;
+    public List<Video> getAllVideosWithPreviewAndOddEpisodesAndEvenSeasons(List<Season> seasons) {
+        return seasons.stream()
+                .filter(season -> season.seasonNumber % 2 == 0)
+                .flatMap(season -> season.getEpisodes().stream())
+                .filter(episode -> episode.episodeNumber % 2 != 0)
+                .flatMap(episode -> episode.getVideos().stream())
+                .filter(video -> video.getVideoType().equals(VideoType.PREVIEW))
+                .collect(Collectors.toList());
     }
 }
