@@ -10,7 +10,7 @@ public class MyFirstThread extends Thread {
     @Override
     public void run(){
         // gdy wątek jest uruchomiony wykonywana jest metoda run()
-        for(int i = 0; i < 60; i++){
+        for(int i = 0; i < 10; i++){
             try {
 //            Thread.currentThread().getName() -> zwraca nazwę wątku
             System.out.println(i + "s : wątek: " + Thread.currentThread().getName());
