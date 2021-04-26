@@ -11,5 +11,8 @@ public class StringExample {
         int foundAt = s1.indexOf(s2);
         System.out.println(foundAt);
 
+        String text = "Ala ma kota a kot ma Alę";
+        System.out.println(text.substring(14,17));
+        System.out.println(text.substring(14));
     }
 }
