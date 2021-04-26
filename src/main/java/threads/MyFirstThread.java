@@ -2,6 +2,11 @@ package threads;
 
 // każda klasa wątku rozszerza klasę thread
 public class MyFirstThread extends Thread {
+    public MyFirstThread() {                // domyślny
+    }
+    public MyFirstThread(String name) {     // edytujący nazwę wątku
+        super(name);
+    }
     @Override
     public void run(){
         // gdy wątek jest uruchomiony wykonywana jest metoda run()
