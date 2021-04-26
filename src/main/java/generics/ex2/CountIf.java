@@ -19,7 +19,7 @@ public class CountIf {
         int counNames = Utils.countIf(names, new Validator<String>() {
             @Override
             public boolean validate(String s) {
-                return false;
+                return s.length() == 3;
             }
         });
         System.out.println("Ilość imion 3-znakowych: " + counNames);
