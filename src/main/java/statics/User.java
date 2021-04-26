@@ -4,11 +4,15 @@ import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Data
 public class User {
+    private static Map<String, Object> passedObjects = new HashMap<>(){{
+        put("loggedUser", new User("logged","logged"));
+    }};
     public static  int global_id;      // składowe nie są związane z obiektem a z klasą
                                         // pole statyczne nie jest reinicjalizowane przy tworzeniu obiektu
     public static void getInfo(){       // metoda statyczna
@@ -38,5 +42,6 @@ public class User {
         // gotowe realizacje
         LocalDate ldt = LocalDate.now();
         double PI = Math.PI;
+
     }
 }
