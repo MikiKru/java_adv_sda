@@ -6,10 +6,10 @@ public class Main {
     public static void main(String[] args) {
         // tutaj program wykonywany jest w wątku głównym main
         System.out.println("MAIN: " + Thread.currentThread().getName());
-        MyFirstThread myFirstThread1 = new MyFirstThread();
+        MyFirstThread myFirstThread1 = new MyFirstThread();                 // NEW
         MyFirstThread myFirstThread2 = new MyFirstThread("ALPHA");
         // uruchomienie wątków odbywa się za pomocą wywołania metody
-        myFirstThread1.start();     // alokacja zasobów sprzetowych dla wątku mft1
+        myFirstThread1.start();     // alokacja zasobów sprzetowych dla wątku mft1 RUNNABLE
         myFirstThread2.start();     // alokacja zasobów sprzetowych dla wątku mft2
         System.out.println("MAIN: " + Thread.currentThread().getName());
         // implementacja klasy wątku w klasie anonimowej
@@ -22,7 +22,7 @@ public class Main {
                 for (String name : names) {
                     try {
                         int randomTime = random.nextInt(5) + 1;      // losowe wartości natualne z zakresu 1:5
-                        Thread.sleep(randomTime * 1000);
+                        Thread.sleep(randomTime * 1000);              // TIME_WAITING / WAITING
                         System.out.println(name + " : " +
                                 Thread.currentThread().getName() +
                                 "time to solve: " + randomTime + "s");
