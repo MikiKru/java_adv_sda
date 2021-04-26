@@ -13,7 +13,7 @@ public class MyFirstThread extends Thread {
         for(int i = 0; i < 60; i++){
             try {
 //            Thread.currentThread().getName() -> zwraca nazwę wątku
-            System.out.println("Wątek: " + Thread.currentThread().getName());
+            System.out.println(i + "s : wątek: " + Thread.currentThread().getName());
 //            Thread.sleep(1000);   -> uśpienie wątku na 1s (WAITING)
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
