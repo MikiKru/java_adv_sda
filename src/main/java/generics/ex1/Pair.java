@@ -1,4 +1,4 @@
-package generics;
+package generics.ex1;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
