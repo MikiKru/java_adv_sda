@@ -7,6 +7,7 @@ import java.util.Arrays;
 public class SwapOperation {
     public static <T> void swap(T[] table, int index1, int index2){
         try {
+            // String element = table[index1]
             T element = table[index1];
             table[index1] = table[index2];      // wartość na ind2 aktualizuje wartość na ind1
             table[index2] = element;            // wartość na ind1 aktualizuje wartość obiektu element
